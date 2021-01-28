@@ -12,7 +12,6 @@ public class RegistrationTest {
         open("https://www.sharelane.com/cgi-bin/register.py");
         $(By.name("zip_code")).sendKeys("12345");
         $(By.cssSelector("[value=Continue]")).click();
-
         String result = $(By.cssSelector("[value=Register]")).getText();// изучить getAttribute
         Assert.assertEquals(result, "Register");
     }
@@ -66,7 +65,7 @@ public class RegistrationTest {
         $(By.name("password1")).sendKeys("pswrd");
         $(By.name("password2")).sendKeys("pswrd");
         $(By.cssSelector("[value=Register]")).click();
-        String result = $(By.cssSelector("[value=Continue]")).getText();
+        String result = $(By.cssSelector("[class=confirmation_message]")).getText();
         Assert.assertEquals(result, "Account is created!\n");
 
     }
